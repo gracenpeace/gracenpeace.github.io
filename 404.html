@@ -5,11 +5,20 @@
     <title>Redirecting...</title>
     <meta http-equiv="refresh" content="0;url=/" />
 <script>
-    // This script makes sure the redirect works properly with client-side routing
-    var path = window.location.pathname;
-    var search = window.location.search;
-    var hash = window.location.hash;
-    window.location.replace(path + search + hash);
+    (function() {
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      var repoName = ''; // 리포지토리 이름이 필요없다면 빈 문자열로 남겨두세요.
+
+      // 원래 URL을 구성합니다.
+      var originalUrl = repoName + path + search + hash;
+
+      // 현재 URL이 index.html로 끝나지 않는지 확인합니다.
+      if (!path.endsWith('index.html')) {
+        window.location.replace(repoName + '/' + 'index.html?redirect=' + encodeURIComponent(originalUrl));
+      }
+    })();
 </script>
 </head>
 <body>
