@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="0;url=/" />
+<script>
+    // This script makes sure the redirect works properly with client-side routing
+    var path = window.location.pathname;
+    var search = window.location.search;
+    var hash = window.location.hash;
+    window.location.replace(path + search + hash);
+</script>
+</head>
+<body>
+    <p>If you are not redirected automatically, follow this <a href="/">link to the home page</a>.</p>
+</body>
+</html>
